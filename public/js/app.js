@@ -1,5 +1,3 @@
-console.log('Client side javascript file is loaded!')
-
 fetch('http://localhost:3000/weather?address=cecil, alabama').then((response) => {
     response.json().then((data) => {//{ location, forecast: foreCastData } = {}) => {
         if (data.error) {
