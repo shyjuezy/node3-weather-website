@@ -11,11 +11,13 @@ const foreCast = (longitude, latitude, callBack) => {
             callBack('Invalid Location', undefined)
         }
         else {
-            console.log(body.hourly.summary)
+            console.log('forecast is : ' + body.daily.data[0].summary)
             callBack(undefined, {
                 temperature: body.currently.temperature,
                 possibleRainChance: body.currently.precipProbability,
-                forecast: body.hourly.summary
+                forecast: body.daily.data[0].summary,
+                temperatureHigh: body.daily.data[0].temperatureHigh,
+                temperatureLow: body.daily.data[0].temperatureLow
             })
         }
     })

@@ -58,7 +58,7 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
         else {
-            foreCast(longitude, latitude, (error, { temperature, possibleRainChance, forecast }) => {
+            foreCast(longitude, latitude, (error, { temperature, possibleRainChance, forecast, temperatureHigh, temperatureLow } = {}) => {
                 if (error) {
                     return res.send({ error })
                 }
@@ -68,7 +68,7 @@ app.get('/weather', (req, res) => {
                     res.send({
                         temperature,
                         possibleRainChance,
-                        forecast,
+                        forecast: forecast + ' With High ' + temperatureHigh + ' and low ' + temperatureLow, 
                         location
                     })
                 }
